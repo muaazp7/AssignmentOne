@@ -1,0 +1,39 @@
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">CampusBuzz</div>
+    <nav class="sidebar-nav">
+      <a routerLink="/home" routerLinkActive="nav-active">
+        <span class="nav-icon">&#9632;</span> All Events
+      </a>
+      <a routerLink="/create-event" routerLinkActive="nav-active">
+        <span class="nav-icon">&#43;</span> New Event
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1>New Event</h1>
+      <p class="subtitle">Fill in the details to add a new campus event</p>
+    </div>
+
+    <div class="form-wrapper">
+      <div class="input-row">
+        <label>Event Title</label>
+        <input type="text" placeholder="e.g. Career Fair 2026" [(ngModel)]="newEvent.title" />
+      </div>
+      <div class="input-row">
+        <label>Venue / Location</label>
+        <input type="text" placeholder="e.g. Main Hall" [(ngModel)]="newEvent.location" />
+      </div>
+      <div class="input-row">
+        <label>Ticket Price (R)</label>
+        <input type="number" placeholder="0 for free" [(ngModel)]="newEvent.ticketPricing" />
+      </div>
+      <div class="btn-row">
+        <button class="primary-btn" [disabled]="!isValid()" (click)="submitEvent()">Add Event</button>
+        <button class="ghost-btn" (click)="goBack()">Cancel</button>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,43 @@
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">CampusBuzz</div>
+    <nav class="sidebar-nav">
+      <a routerLink="/home" routerLinkActive="nav-active">
+        <span class="nav-icon">&#9632;</span> All Events
+      </a>
+      <a routerLink="/create-event" routerLinkActive="nav-active">
+        <span class="nav-icon">&#43;</span> New Event
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1>Update Event</h1>
+      <p class="subtitle">Make changes to the selected event</p>
+    </div>
+
+    <div class="form-wrapper" *ngIf="eventData; else loading">
+      <div class="input-row">
+        <label>Event Title</label>
+        <input type="text" [(ngModel)]="eventData.title" />
+      </div>
+      <div class="input-row">
+        <label>Venue / Location</label>
+        <input type="text" [(ngModel)]="eventData.location" />
+      </div>
+      <div class="input-row">
+        <label>Ticket Price (R)</label>
+        <input type="number" [(ngModel)]="eventData.ticketPricing" />
+      </div>
+      <div class="btn-row">
+        <button class="primary-btn" (click)="saveChanges()">Save Changes</button>
+        <button class="ghost-btn" (click)="discard()">Discard</button>
+      </div>
+    </div>
+
+    <ng-template #loading>
+      <p>Loading event data...</p>
+    </ng-template>
+  </main>
+</div>

@@ -1,0 +1,36 @@
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">CampusBuzz</div>
+    <nav class="sidebar-nav">
+      <a routerLink="/home" routerLinkActive="nav-active">
+        <span class="nav-icon">&#9632;</span> All Events
+      </a>
+      <a routerLink="/create-event" routerLinkActive="nav-active">
+        <span class="nav-icon">&#43;</span> New Event
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1>Campus Events</h1>
+      <p class="subtitle">Browse and manage all upcoming events</p>
+    </div>
+
+    <div class="events-grid">
+      <div class="event-tile" *ngFor="let item of campusEvents">
+        <div class="tile-header">
+          <span class="tile-title">{{ item.title }}</span>
+          <span class="price-badge">{{ item.ticketPricing === 0 ? 'FREE' : 'R' + item.ticketPricing }}</span>
+        </div>
+        <div class="tile-body">
+          <p class="tile-location"><b>Place:</b> {{ item.location }}</p>
+        </div>
+        <div class="tile-footer">
+          <button class="action-btn edit-btn" (click)="goToUpdate(item.event_Id)">Edit</button>
+          <button class="action-btn remove-btn" (click)="deleteEvent(item.event_Id)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
